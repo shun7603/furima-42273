@@ -17,7 +17,6 @@
 
 - has_many :items
 - has_many :orders
-- has_many :comments
 
 ## items テーブル
 
@@ -29,23 +28,24 @@
 | category_id        | integer    | null: false                 |
 | condition_id       | integer    | null: false                 |
 | shipping_fee_id    | integer    | null: false                 |
-| delivery_time_id   | integer    | null: false                 |
+| prefecture_id      | integer    | null: false                 |
+| shipping_days_id   | integer    | null: false                 |
 | price              | integer    | null: false                 |
-| user_id            | references | null: false,foreign_key:true|
+| user               | references | null: false,foreign_key:true|
+
 
 ### Association
 
 - has_one :order
 - belongs_to :user
-- has_many :comments
 
 
 ### ordersテーブル
 
 | Column             | Type       | Options                     |
 | ------------------ | -----------| ----------------------------|
-| user_id            | references | null: false,foreign_key:true|
-| item_id            | references | null: false,foreign_key:true|
+| user               | references | null: false,foreign_key:true|
+| item               | references | null: false,foreign_key:true|
 
 
 ### Association
@@ -65,22 +65,10 @@
 | address            | string     | null: false                  |
 | building           | string     |                              |
 | phone_number       | string     | null: false                  |
-| order_id           | references | null: false,foreign_key:true |
+| order              | references | null: false,foreign_key:true |
 
 
 ### Association
 
 - belongs_to :order
 
-
-
-### commentsテーブル
-
-| Column             | Type       | Options                      |
-| ------------------ | -----------| ---------------------------- |
-| content            | text       | null: false                  |
-| user               | references | null: false,foreign_key:true |
-| item               | references | null: false,foreign_key:true |
-
-- belongs_to :user
-- belongs_to :item
