@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
         @user.password = 'qqqqq1'
         @user.password_confirmation = 'qqqqq2'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password confirmation does not match Password')
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it 'passwordが英語のみでは登録できない' do
         @user.password = 'aaaaaa'
@@ -58,27 +58,27 @@ RSpec.describe User, type: :model do
       it 'first_nameが空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First_name can't be blank")
+        expect(@user.errors.full_messages).to include("First name can't be blank")
       end
       it 'last_name_kanaが空では登録できない' do
-        @user.nickname = ''
+        @user.last_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last_name_kana can't be blank")
+        expect(@user.errors.full_messages).to include("Last name kana can't be blank")
       end
       it 'last_name_kanaがカタカナでないと登録できない' do
         @user.last_name_kana = 'やまだ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Last_name_kana はカタカナで入力してください')
+        expect(@user.errors.full_messages).to include('Last name kana はカタカナで入力してください')
       end
       it 'first_name_kanaが空では登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First_name_kana can't be blank")
+        expect(@user.errors.full_messages).to include("First name kana can't be blank")
       end
       it 'first_name_kanaがカタカナでないと登録できない' do
         @user.first_name_kana = 'しゅん'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First_name_kana はカタカナで入力してください')
+        expect(@user.errors.full_messages).to include('First name kana はカタカナで入力してください')
       end
       it 'birth_dateが空では登録できない' do
         @user.birth_date = ''
