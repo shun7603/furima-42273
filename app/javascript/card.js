@@ -16,9 +16,6 @@ const pay = () => {
 
     payjp.createToken(numberElement).then(function (response) {
       if (response.error) {
-        console.log("カード情報が正しく入力されていません");
-        // ここであえてそのまま submit して、token: nil の状態でRailsに渡す
-        form.submit();
       } else {
         const token = response.id;
         const tokenObj = `<input value="${token}" name="token" type="hidden">`;
