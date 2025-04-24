@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create]        # ← これを最初にする！
+  before_action :set_item, only: [:index, :create]
   before_action :redirect_if_sold_out, only: [:index, :create]
   before_action :redirect_if_seller, only: [:index, :create]
   def index
@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   def create
     @order_address = OrderAddress.new(order_params)
     puts "💡params[:token]: #{params[:token]}"
-    puts "💡order_params[:token]: #{order_params[:token]}" # ← こっちが超重要！
+    puts "💡order_params[:token]: #{order_params[:token]}"
     if @order_address.valid?
       pay_item
       @order_address.save
