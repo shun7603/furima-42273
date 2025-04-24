@@ -40,8 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_24_022259) do
   end
 
   create_table "addresses", charset: "utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "postal_code"
     t.integer "prefecture_id"
     t.string "city"
@@ -49,6 +47,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_24_022259) do
     t.string "building"
     t.string "phone_number"
     t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_addresses_on_order_id"
   end
 

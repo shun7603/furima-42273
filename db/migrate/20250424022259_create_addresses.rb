@@ -1,7 +1,6 @@
-# db/migrate/20250424022259_create_addresses.rb
 class CreateAddresses < ActiveRecord::Migration[7.1]
   def change
-    change_table :addresses do |t|
+    create_table :addresses do |t|
       t.string :postal_code
       t.integer :prefecture_id
       t.string :city
@@ -10,6 +9,7 @@ class CreateAddresses < ActiveRecord::Migration[7.1]
       t.string :phone_number
       t.references :order, foreign_key: true
 
+      t.timestamps
     end
   end
 end
