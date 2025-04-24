@@ -32,9 +32,8 @@ class Item < ApplicationRecord
   validates :price,
             presence: { message: "can't be blank" },
             numericality: {
-              only_integer: true,
+              only_integer: { message: 'must be an integer' },
               greater_than_or_equal_to: 300,
-              less_than_or_equal_to: 9_999_999,
-              allow_blank: true
+              less_than_or_equal_to: 9_999_999
             }
 end
