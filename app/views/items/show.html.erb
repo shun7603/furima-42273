@@ -8,7 +8,7 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <<% if @item.order.present? %>
+      <% if @item.order.present? %>
       <div class="sold-out">
       <span>Sold Out!!</span> 
       </div>
@@ -34,7 +34,7 @@
 
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @item.description %></span>
     </div>
     <table class="detail-table">
       <tbody>
